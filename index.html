@@ -3,397 +3,431 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy - Freya</title>
+  <title>Freya — Privacy Policy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #2B48BC;
+      --surface: #2040b0;
+      --border: rgba(255,255,255,0.18);
+      --accent: #a8c4ff;
+      --accent-soft: rgba(168, 196, 255, 0.12);
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.65);
+      --heading: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── Starfield background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 72% 8%, rgba(255,255,255,.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 55%, rgba(255,255,255,.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 88% 40%, rgba(255,255,255,.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 80%, rgba(255,255,255,.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 10% 75%, rgba(255,255,255,.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 95% 65%, rgba(255,255,255,.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 90%, rgba(255,255,255,.2) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Layout ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .app-name {
+      font-family: 'Instrument Sans', sans-serif;
+      font-style: italic;
+      font-size: 13px;
+      letter-spacing: .25em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--heading);
+      line-height: 1.2;
+      margin-bottom: 28px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: .05em;
+    }
+
+    .meta-item span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--accent), transparent);
+      margin: 36px auto 0;
+    }
+
+    /* ── Intro ── */
+    .intro {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 52px;
+    }
+
+    .section-number {
+      font-size: 11px;
+      letter-spacing: .2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    section h2 {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      color: var(--heading);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 500;
+      font-size: .95rem;
+      letter-spacing: .05em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin: 28px 0 12px;
+    }
+
+    p { margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* ── Contact / highlight boxes ── */
+    .highlight-box {
+      background: var(--accent-soft);
+      border: 1px solid rgba(200, 169, 126, 0.25);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .highlight-box strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ── Links ── */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(200, 169, 126, 0.35);
+      transition: border-color .2s;
+    }
+
+    a:hover { border-color: var(--accent); }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer .footer-app {
+      font-family: 'Instrument Sans', sans-serif;
+      font-style: italic;
+      color: var(--accent);
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .wrapper { padding: 48px 20px 80px; }
+    }
+  </style>
 </head>
 <body>
-  <h2>Privacy Policy</h2>
-
-  <p><strong>Published:</strong> 1 January 2026</p>
-  <p><strong>Developer:</strong> Yegor Terokhin</p>
-  <p><strong>Application:</strong> Freya (the “App” or the “Service”)</p>
-
-  <p>
-    This Privacy Policy (the “Policy”) explains how we use, disclose, and protect your
-    information when you use the Freya mobile application, available via the Apple App Store,
-    and related software and services (together, the “Services”).
-  </p>
-
-  <p>
-    By using the Services, you acknowledge that you have read and understood this Policy and
-    agree to the practices described here. If you do not agree with this Policy, please do not
-    use the App.
-  </p>
-
-  <p>
-    Your use of the App is also governed by our Terms of Use. In case of any inconsistency
-    between this Policy and the Terms regarding the processing of personal data, this Policy
-    will prevail.
-  </p>
-
-  <h3>1. Who is responsible for your data</h3>
-
-  <p>Your data is processed by:</p>
-
-  <p><strong>Controller:</strong> individual developer, Yegor Terokhin.</p>
-
-  <p>
-    <strong>E-mail for privacy and data questions:</strong>
-    <a href="mailto:iterokhin.dev@gmail.com">iterokhin.dev@gmail.com</a>.
-  </p>
-
-  <p>
-    We do not maintain our own dedicated servers for long-term storage of complete sets of
-    your personal data. In practice, your data is processed:
-  </p>
-
-  <ul>
-    <li>locally on your device, and</li>
-    <li>
-      by carefully selected third-party service providers that are necessary for the operation
-      of the App (for example, AI-powered features, subscriptions, analytics, diagnostics and
-      infrastructure).
-    </li>
-  </ul>
-
-  <p>
-    These providers act as our service providers and process data in accordance with their own
-    privacy policies and applicable law.
-  </p>
-
-  <h3>2. Where the App is available and what law applies</h3>
-
-  <p>
-    The App is available to users worldwide, including users in the United States and the
-    European Union.
-  </p>
-
-  <p>
-    Regardless of where you are located, the processing of your personal data is primarily
-    governed by the laws of the Czech Republic and applicable European Union data protection
-    law (including the GDPR, where it applies to you).
-  </p>
-
-  <p>
-    The specific rights and remedies available to you may depend on your country of residence,
-    but we aim to provide at least the level of protection required by applicable European law.
-  </p>
-
-  <h3>3. Data we process</h3>
-
-  <p>
-    We process only the data that we need to operate the App, provide the Services, and improve
-    the user experience.
-  </p>
-
-  <h3>3.1. Data you provide directly</h3>
-
-  <p>When using the App, you may provide:</p>
-
-  <ul>
-    <li>information needed to generate personolazed content:
-      <ul>
-        <li>gender</li>
-        <li>user name (nickname or real name)</li>
-        <li>date, time, and place of birth</li>
-      </ul>
-    </li>
-    <li>
-      information about purchases and subscriptions made via the Apple App Store (for example,
-      product, status, time of purchase, country)
-    </li>
-  </ul>
-
-  <p>This information is used to:</p>
-
-  <ul>
-    <li>provide access to paid features and subscriptions</li>
-    <li>improve the quality, relevance, and personalization of content</li>
-    <li>support analytics, diagnostics, and stability of the App.</li>
-  </ul>
-
-  <p>
-    You may choose not to provide some of this information, but in that case key features of
-    the App (such as horoscopes and compatibility reports) may not be available or may not
-    function correctly.
-  </p>
-
-  <p>
-    If you provide information about other individuals (for example, a partner), you represent
-    that:
-  </p>
-
-  <ul>
-    <li>you are legally allowed to do so, and</li>
-    <li>where required by applicable law, you have obtained their consent.</li>
-  </ul>
-
-  <h3>3.2. Technical and usage data</h3>
-
-  <p>
-    When you use the App, our service providers may automatically collect certain technical and
-    usage information, such as:
-  </p>
-
-  <ul>
-    <li>basic device information (for example, device type and operating system)</li>
-    <li>language and region of your device</li>
-    <li>
-      de-identified usage and diagnostics data (for example, which screens are opened and how
-      often, basic performance metrics, crash information).
-    </li>
-  </ul>
-
-  <p>These data is generally collected in aggregated or de-identified form and is used to:</p>
-
-  <ul>
-    <li>understand how the App is used</li>
-    <li>improve the interface and functionality</li>
-    <li>monitor stability and fix errors.</li>
-  </ul>
-
-  <h3>4. Third-party services</h3>
-
-  <p>
-    To operate the App, we use third-party service providers. These may include:
-  </p>
-
-  <ul>
-    <li>AI service providers for generating texts (currently including OpenAI)</li>
-    <li>payment and subscription management providers connected to the Apple App Store</li>
-    <li>
-      analytics and diagnostics providers that help us understand how the App is used and
-      improve stability.
-    </li>
-  </ul>
-
-  <p>
-    We aim to share only the minimum data necessary to provide the relevant feature. For
-    example:
-  </p>
-
-  <ul>
-    <li>
-      For AI-powered features, we send derived parameters (such as your life goals) rather than
-      the raw date, time, and place of birth, and we do not include your real name or contact
-      details in such requests.
-    </li>
-    <li>
-      Purchases and subscriptions are primarily processed through Apple’s infrastructure, and
-      may also be processed by subscription management providers on a de-identified basis.
-    </li>
-    <li>Analytics providers typically receive de-identified usage and diagnostics data.</li>
-  </ul>
-
-  <p>
-    The list of providers may change over time. We select providers that apply appropriate
-    security and privacy measures. These providers process your data in accordance with their
-    own privacy policies and applicable law.
-  </p>
-
-  <h3>5. Sources of information</h3>
-
-  <p>We receive information from:</p>
-
-  <ul>
-    <li>
-      You directly
-      <p>
-        For example, data you enter in forms in the App (birth data, compatibility data,
-        settings).
-      </p>
-    </li>
-    <li>
-      Your use of the App
-      <p>For example, interactions with different screens and features.</p>
-    </li>
-    <li>
-      Service providers
-      <p>
-        For example, de-identified analytics and information about purchases and subscriptions
-        from Apple and other providers.
-      </p>
-    </li>
-  </ul>
-
-  <h3>6. How and where your data is stored, and for how long</h3>
-
-  <ul>
-    <li>
-      All your app data is stored only on your device. Deleting the App removes this data from
-      the device. Accordingly, if you delete the App from your device, all information stored in
-      the App on that device – including your user information and your local report history –
-      will be deleted from that device and cannot be recovered, reconstructed, or otherwise
-      restored by us.
-    </li>
-    <li>
-      Certain categories of data may be stored by our service providers (for example, Apple, AI
-      providers, analytics providers) in accordance with their infrastructure and retention
-      practices.
-    </li>
-  </ul>
-
-  <p>Retention:</p>
-
-  <ul>
-    <li>On your device, your data is generally stored until you delete the App or clear its data.</li>
-    <li>
-      Our service providers may store some data for as long as necessary to:
-      <ul>
-        <li>provide their services</li>
-        <li>comply with legal obligations</li>
-        <li>resolve disputes and protect their legitimate interests</li>
-        <li>meet applicable retention requirements.</li>
-      </ul>
-    </li>
-  </ul>
-
-  <p>
-    Deleting the App from your device does not automatically delete all data stored by
-    third-party providers.
-  </p>
-
-  <h3>7. How we use your data</h3>
-
-  <p>We may use your data to:</p>
-
-  <ul>
-    <li>provide and maintain the App and its features</li>
-    <li>generate content</li>
-    <li>provide access to paid features and manage subscriptions and purchases</li>
-    <li>respond to your support and privacy-related requests</li>
-    <li>
-      perform analytics and diagnostics and improve the App’s content, interface, and stability
-    </li>
-    <li>comply with legal obligations and protect our legitimate interests, where applicable.</li>
-  </ul>
-
-  <p>
-    We do not sell your personal information or share it with third parties for cross-context
-    behavioral advertising.
-  </p>
-
-  <h3>8. Children’s privacy</h3>
-
-  <p>
-    The App is not intended for children under 16 years of age, and we do not knowingly collect
-    personal data from children under 16.
-  </p>
-
-  <p>
-    If you are acting as an individual, you hereby represent and warrant that you are at least
-    16 years of age and that you have the legal capacity to enter into and be bound by legally
-    binding agreements under the laws that apply to you.
-  </p>
-
-  <p>
-    If you are under 16 years of age, you are not permitted to access, use, or browse the
-    Services, or provide any personal data through the App.
-  </p>
-
-  <p>
-    If you believe that we have received the information of a child, please contact us at
-    <a href="mailto:iterokhin.dev@gmail.com">iterokhin.dev@gmail.com</a>.
-  </p>
-
-  <h3>9. Your rights</h3>
-
-  <p>
-    We do not store any directly identifying personal data (such as your name or email address)
-    on our own servers. However, when you use the App, certain technical information (such as
-    device identifiers or usage events) may be processed by our analytics providers. Where this
-    information is regarded as “personal data” under applicable law (for example, under the GDPR
-    in the European Union), you may have certain rights in relation to such personal data,
-    including:
-  </p>
-
-  <ul>
-    <li>the right to request access to certain personal data we hold about you</li>
-    <li>the right to request correction of inaccurate or incomplete personal data</li>
-    <li>the right to request deletion of personal data in certain circumstances</li>
-    <li>
-      the right to object to or restrict certain types of processing, where provided by law
-    </li>
-    <li>the right to data portability, where applicable.</li>
-  </ul>
-
-  <p>
-    The availability and scope of these rights may vary depending on your situation and local
-    law. In some cases, we may be required or allowed to retain certain data, for example to
-    comply with legal obligations or to protect our legitimate interests.
-  </p>
-
-  <p>To exercise your rights or ask a question about your personal data, please contact:</p>
-
-  <p>
-    <strong>E-mail:</strong>
-    <a href="mailto:iterokhin.dev@gmail.com">iterokhin.dev@gmail.com</a>.
-  </p>
-
-  <p>
-    We may ask you for additional information to verify your identity. We aim to respond within
-    a reasonable time and, where required by law, within applicable deadlines (for example,
-    usually within 30 days under the GDPR).
-  </p>
-
-  <h3>10. Data security</h3>
-
-  <p>
-    We use reasonable technical and organizational measures designed to help protect your data
-    against loss, misuse, unauthorized access, and disclosure.
-  </p>
-
-  <p>
-    However, no method of transmission over the Internet or electronic storage is completely
-    secure. You understand that:
-  </p>
-
-  <ul>
-    <li>any transmission of data is at your own risk, and</li>
-    <li>
-      we cannot guarantee absolute security, to the extent allowed by applicable law.
-    </li>
-  </ul>
-
-  <h3>11. Use of the App at your own risk</h3>
-
-  <p>
-    The App and its content are intended for entertainment, cultural, and informational purposes
-    only. The App does not provide medical, psychological, legal, financial, or other
-    professional advice, and it is not intended to diagnose, treat, or prevent any condition.
-  </p>
-
-  <p>
-    Decisions you make based on horoscopes, interpretations, forecasts, or recommendations
-    received through the App are your own responsibility. If you have questions related to
-    health, mental condition, finances, legal matters, or similar topics, you should consult
-    qualified professionals.
-  </p>
-
-  <h3>12. Changes to this Policy</h3>
-
-  <p>
-    We may update this Privacy Policy from time to time. The current version is always available
-    in the App and/or in the relevant section of the Apple App Store.
-  </p>
-
-  <p>
-    If we make material changes, we may notify you in the App or by other reasonable means. By
-    continuing to use the App after changes take effect, you accept the updated Policy. If you
-    do not agree with the changes, you should stop using the App.
-  </p>
-
-  <h3>13. Contact us</h3>
-
-  <p>
-    If you have any questions about this Policy or how we process your data, please contact us
-    at:
-  </p>
-
-  <p>
-    <strong>E-mail:</strong>
-    <a href="mailto:iterokhin.dev@gmail.com">iterokhin.dev@gmail.com</a>.
-  </p>
-
-  <p>We will do our best to respond within a reasonable time.</p>
+<div class="wrapper">
+
+  <header>
+    <p class="app-name">Freya</p>
+    <h1>Privacy Policy</h1>
+    <div class="meta">
+      <div class="meta-item">Published <span>1 January 2026</span></div>
+      <div class="meta-item">Developer <span>Yegor Terokhin</span></div>
+    </div>
+    <div class="divider"></div>
+  </header>
+
+  <div class="intro">
+    This Privacy Policy (the "Policy") explains how we use, disclose, and protect your information when you use the Freya mobile application, available via the Apple App Store, and related software and services (together, the "Services").<br><br>
+    By using the Services, you acknowledge that you have read and understood this Policy and agree to the practices described here. If you do not agree with this Policy, please do not use the App.<br><br>
+    Your use of the App is also governed by our Terms of Use. In case of any inconsistency between this Policy and the Terms regarding the processing of personal data, this Policy will prevail.
+  </div>
+
+  <!-- 1 -->
+  <section>
+    <p class="section-number">Section 01</p>
+    <h2>Who is responsible for your data</h2>
+    <div class="highlight-box">
+      <strong>Controller:</strong> Individual developer, Yegor Terokhin.<br>
+      <strong>E-mail:</strong> <a href="mailto:iterokhin.dev@gmail.com">iterokhin.dev@gmail.com</a>
+    </div>
+    <p>We do not maintain our own dedicated servers for long-term storage of complete sets of your personal data. In practice, your data is processed:</p>
+    <ul>
+      <li>locally on your device, and</li>
+      <li>by carefully selected third-party service providers that are necessary for the operation of the App (for example, AI-powered features, subscriptions, analytics, diagnostics and infrastructure).</li>
+    </ul>
+    <p>These providers act as our service providers and process data in accordance with their own privacy policies and applicable law.</p>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <p class="section-number">Section 02</p>
+    <h2>Where the App is available and what law applies</h2>
+    <p>The App is available to users worldwide, including users in the United States and the European Union.</p>
+    <p>Regardless of where you are located, the processing of your personal data is primarily governed by the laws of the Czech Republic and applicable European Union data protection law (including the GDPR, where it applies to you).</p>
+    <p>The specific rights and remedies available to you may depend on your country of residence, but we aim to provide at least the level of protection required by applicable European law.</p>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <p class="section-number">Section 03</p>
+    <h2>Data we process</h2>
+    <p>We process only the data that we need to operate the App, provide the Services, and improve the user experience.</p>
+
+    <h3>3.1 Data you provide directly</h3>
+    <p>When using the App, you may provide:</p>
+    <ul>
+      <li>information needed to generate personalized content:
+        <ul>
+          <li>gender</li>
+          <li>user name (nickname or real name)</li>
+          <li>date, time, and place of birth</li>
+        </ul>
+      </li>
+      <li>information about purchases and subscriptions made via the Apple App Store (for example, product, status, time of purchase, country)</li>
+    </ul>
+    <p>This information is used to:</p>
+    <ul>
+      <li>provide access to paid features and subscriptions</li>
+      <li>improve the quality, relevance, and personalization of content</li>
+      <li>support analytics, diagnostics, and stability of the App.</li>
+    </ul>
+    <p>You may choose not to provide some of this information, but in that case key features of the App may not be available or may not function correctly.</p>
+    <p>If you provide information about other individuals (for example, a partner), you represent that you are legally allowed to do so and, where required by applicable law, you have obtained their consent.</p>
+
+    <h3>3.2 Technical and usage data</h3>
+    <p>When you use the App, our service providers may automatically collect certain technical and usage information, such as:</p>
+    <ul>
+      <li>basic device information (for example, device type and operating system)</li>
+      <li>language and region of your device</li>
+      <li>de-identified usage and diagnostics data (for example, which screens are opened and how often, basic performance metrics, crash information).</li>
+    </ul>
+    <p>This data is generally collected in aggregated or de-identified form and is used to understand how the App is used, improve the interface and functionality, and monitor stability and fix errors.</p>
+  </section>
+
+  <!-- 4 -->
+  <section>
+    <p class="section-number">Section 04</p>
+    <h2>Third-party services</h2>
+    <p>We use the following categories of third-party service providers:</p>
+    <ul>
+      <li>AI service providers for generating texts (currently including OpenAI)</li>
+      <li>payment and subscription management providers connected to the Apple App Store</li>
+      <li>analytics and diagnostics providers that help us understand how the App is used and improve stability.</li>
+    </ul>
+    <p>We aim to share only the minimum data necessary to provide the relevant feature. For example:</p>
+    <ul>
+      <li>For AI-powered features, we send derived parameters (such as your life goals) rather than the raw date, time, and place of birth, and we do not include your real name or contact details in such requests.</li>
+      <li>Purchases and subscriptions are primarily processed through Apple's infrastructure, and may also be processed by subscription management providers on a de-identified basis.</li>
+      <li>Analytics providers typically receive de-identified usage and diagnostics data.</li>
+    </ul>
+    <p>The list of providers may change over time. We select providers that apply appropriate security and privacy measures. These providers process your data in accordance with their own privacy policies and applicable law.</p>
+  </section>
+
+  <!-- 5 -->
+  <section>
+    <p class="section-number">Section 05</p>
+    <h2>Sources of information</h2>
+    <p>We receive information from:</p>
+    <ul>
+      <li><strong>You directly</strong> — for example, data you enter in forms in the App (birth data, settings).</li>
+      <li><strong>Your use of the App</strong> — for example, interactions with different screens and features.</li>
+      <li><strong>Service providers</strong> — for example, de-identified analytics and information about purchases and subscriptions from Apple and other providers.</li>
+    </ul>
+  </section>
+
+  <!-- 6 -->
+  <section>
+    <p class="section-number">Section 06</p>
+    <h2>How and where your data is stored, and for how long</h2>
+    <ul>
+      <li>All your app data is stored only on your device. Deleting the App removes this data from the device. If you delete the App, all information stored in the App on that device — including your user information and your local report history — will be deleted and cannot be recovered, reconstructed, or otherwise restored by us.</li>
+      <li>Certain categories of data may be stored by our service providers (for example, Apple, AI providers, analytics providers) in accordance with their infrastructure and retention practices.</li>
+    </ul>
+    <p><strong style="color:var(--heading)">Retention:</strong></p>
+    <ul>
+      <li>On your device, your data is generally stored until you delete the App or clear its data.</li>
+      <li>Our service providers may store some data for as long as necessary to provide their services, comply with legal obligations, resolve disputes and protect their legitimate interests, and meet applicable retention requirements.</li>
+    </ul>
+    <p>Deleting the App from your device does not automatically delete all data stored by third-party providers.</p>
+  </section>
+
+  <!-- 7 -->
+  <section>
+    <p class="section-number">Section 07</p>
+    <h2>How we use your data</h2>
+    <p>We may use your data to:</p>
+    <ul>
+      <li>provide and maintain the App and its features</li>
+      <li>generate content</li>
+      <li>provide access to paid features and manage subscriptions and purchases</li>
+      <li>respond to your support and privacy-related requests</li>
+      <li>perform analytics and diagnostics and improve the App's content, interface, and stability</li>
+      <li>comply with legal obligations and protect our legitimate interests, where applicable.</li>
+    </ul>
+    <p>We do not sell your personal information or share it with third parties for cross-context behavioral advertising.</p>
+  </section>
+
+  <!-- 8 -->
+  <section>
+    <p class="section-number">Section 08</p>
+    <h2>Children's privacy</h2>
+    <p>The App is not intended for children under 16 years of age, and we do not knowingly collect personal data from children under 16.</p>
+    <p>If you are acting as an individual, you hereby represent and warrant that you are at least 16 years of age and that you have the legal capacity to enter into and be bound by legally binding agreements under the laws that apply to you.</p>
+    <p>If you are under 16 years of age, you are not permitted to access, use, or browse the Services, or provide any personal data through the App.</p>
+    <p>If you believe that we have received the information of a child, please contact us at <a href="mailto:iterokhin.dev@gmail.com">iterokhin.dev@gmail.com</a>.</p>
+  </section>
+
+  <!-- 9 -->
+  <section>
+    <p class="section-number">Section 09</p>
+    <h2>Your rights</h2>
+    <p>We do not store any directly identifying personal data (such as your name or email address) on our own servers. However, when you use the App, certain technical information (such as device identifiers or usage events) may be processed by our analytics providers. Where this information is regarded as "personal data" under applicable law (for example, under the GDPR), you may have certain rights, including:</p>
+    <ul>
+      <li>the right to request access to certain personal data we hold about you</li>
+      <li>the right to request correction of inaccurate or incomplete personal data</li>
+      <li>the right to request deletion of personal data in certain circumstances</li>
+      <li>the right to object to or restrict certain types of processing, where provided by law</li>
+      <li>the right to data portability, where applicable.</li>
+    </ul>
+    <p>The availability and scope of these rights may vary depending on your situation and local law. In some cases, we may be required or allowed to retain certain data, for example to comply with legal obligations or to protect our legitimate interests.</p>
+    <div class="highlight-box">
+      To exercise your rights or ask a question about your personal data, please contact:<br>
+      <strong>E-mail:</strong> <a href="mailto:iterokhin.dev@gmail.com">iterokhin.dev@gmail.com</a>
+    </div>
+    <p>We may ask you for additional information to verify your identity. We aim to respond within a reasonable time and, where required by law, within applicable deadlines (for example, usually within 30 days under the GDPR).</p>
+  </section>
+
+  <!-- 10 -->
+  <section>
+    <p class="section-number">Section 10</p>
+    <h2>Data security</h2>
+    <p>We use reasonable technical and organizational measures designed to help protect your data against loss, misuse, unauthorized access, and disclosure.</p>
+    <p>However, no method of transmission over the Internet or electronic storage is completely secure. You understand that any transmission of data is at your own risk and we cannot guarantee absolute security, to the extent allowed by applicable law.</p>
+  </section>
+
+  <!-- 11 -->
+  <section>
+    <p class="section-number">Section 11</p>
+    <h2>Use of the App at your own risk</h2>
+    <p>The App and its content are intended for entertainment, cultural, and informational purposes only. The App does not provide medical, psychological, legal, financial, or other professional advice, and it is not intended to diagnose, treat, or prevent any condition.</p>
+    <p>Decisions you make based on recommendations received through the App are your own responsibility. If you have questions related to health, mental condition, finances, legal matters, or similar topics, you should consult qualified professionals.</p>
+  </section>
+
+  <!-- 12 -->
+  <section>
+    <p class="section-number">Section 12</p>
+    <h2>Changes to this Policy</h2>
+    <p>We may update this Privacy Policy from time to time. The current version is always available in the App and/or in the relevant section of the Apple App Store.</p>
+    <p>If we make material changes, we may notify you in the App or by other reasonable means. By continuing to use the App after changes take effect, you accept the updated Policy. If you do not agree with the changes, you should stop using the App.</p>
+  </section>
+
+  <!-- 13 -->
+  <section>
+    <p class="section-number">Section 13</p>
+    <h2>Contact us</h2>
+    <p>If you have any questions about this Policy or how we process your data, please contact us at:</p>
+    <div class="highlight-box">
+      <strong>E-mail:</strong> <a href="mailto:iterokhin.dev@gmail.com">iterokhin.dev@gmail.com</a>
+    </div>
+    <p>We will do our best to respond within a reasonable time.</p>
+  </section>
+
+  <footer>
+    <p class="footer-app">Freya</p>
+    <p>© 2026 Yegor Terokhin · All rights reserved</p>
+  </footer>
+
+</div>
 </body>
 </html>
